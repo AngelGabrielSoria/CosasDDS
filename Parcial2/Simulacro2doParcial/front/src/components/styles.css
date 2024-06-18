@@ -1,0 +1,13 @@
+.container_app {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 102vh;
+    background-color: lightgrey;
+    border: 2px solid black;
+}
+
+.error{
+    color: red;
+}
