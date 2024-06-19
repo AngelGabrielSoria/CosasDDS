@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import {useForm} from 'react-hook-form'
-import Consulta from './Consulta.jsx'
+import { useForm } from "react-hook-form";
+import Consulta from "./Consulta.jsx";
 import "./styles.css";
-import ingresosServices from '../services/ingresos.services.js';
-
+import ingresosServices from "../services/ingresos.services.js";
 
 export default function Registro() {
   const [action, setAction] = useState("R");
@@ -35,6 +34,7 @@ export default function Registro() {
       {action === "R" && (
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="form-group">
+            <h5>Seguridad Registro de ingresos </h5>
             <label htmlFor="Dni">DNI ingreso:</label>
             <input
               type="text"
@@ -45,18 +45,46 @@ export default function Registro() {
             {errors.dni && <span className="error">{errors.dni.message}</span>}
           </div>
           <div className="form-group">
-            <label htmlFor="HoraIngreso">Hora Ingreso:</label>
+            <label htmlFor="HoraIngreso">Hora Ingreso: </label>
             <input
               type="time"
               className="formControl"
               id="Hora Ingreso"
-              placeholder="Ingrese la Hora de Ingreso"
               {...register("HoraIngreso", {
                 required: "la hora de ingreso es requerida",
               })}
             ></input>
             {errors.horaIngreso && (
               <span className="text-danger">{errors.HoraIngreso.message}</span>
+            )}
+          </div>
+          <div className="form-group">
+            <label htmlFor="Proveedor">Proveedor(Empresa Externa):</label>
+            <input
+              type="text"
+              className="form-control"
+              id="Proveedor"
+              {...register("Proveedor", {
+                required: "Este campo es requerido",
+              })}
+            />
+            {errors.proveedor && (
+              <span className="error">{errors.proveedor.message}</span>
+            )}
+          </div>
+          <div className="form-group">
+            <label htmlFor="ConNotebook">Usa Notebook:</label>
+            <input
+              type="checkbox"
+              className="formControl"
+              id="Usa Notebook"
+              placeholder="Usa notebook"
+              {...register("ConNotebook", {
+                required: "Es necesario saber si usa notebook",
+              })}
+            ></input>
+            {errors.ConNotebook && (
+              <span className="text-danger">{errors.ConNotebook.message}</span>
             )}
           </div>
           <div className="form-group text-center mt-3">

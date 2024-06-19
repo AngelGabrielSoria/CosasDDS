@@ -21,7 +21,7 @@ export default function Consulta({rows, onVolver}) {
                                 <td>{e.DniIngreso}</td>
                                 <td>{e.HoraIngreso}</td>
                                 <td>{e.Proveedor}</td>
-                                <td>{e.IngresasConNotebook}</td>
+                                <td>{e.ConNotebook}</td>
                             </tr>
                         )
                     })
